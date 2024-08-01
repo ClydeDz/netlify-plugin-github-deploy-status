@@ -1,0 +1,30 @@
+{
+  "name": "netlify-plugin-github-deploy-status",
+  "version": "0.0.1",
+  "description": "TODO",
+  "main": "./src/index.cjs",
+  "exports": "./src/index.cjs",
+  "scripts": {
+    "build": "netlify env:import .env.local && netlify build",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClydeDz/netlify-plugin-github-deploy-status.git"
+  },
+  "keywords": [
+    "github"
+  ],
+  "author": "Clyde D'Souza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ClydeDz/netlify-plugin-github-deploy-status/issues"
+  },
+  "homepage": "https://github.com/ClydeDz/netlify-plugin-github-deploy-status#readme",
+  "devDependencies": {
+    "netlify-cli": "^17.33.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
