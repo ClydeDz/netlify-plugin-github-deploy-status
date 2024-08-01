@@ -1,12 +1,15 @@
 {
-  "name": "netlify-plugin-github-deploy-status",
-  "version": "0.0.1",
-  "description": "TODO",
+  "name": "@clydedsouza/netlify-plugin-github-deploy-status",
+  "version": "0.0.2",
+  "description": "Netlify plugin that updates GitHub commit status with the latest deployment progress.",
   "main": "./src/index.cjs",
   "exports": "./src/index.cjs",
   "scripts": {
     "build": "netlify env:import .env.local && netlify build",
     "test": "npm run test"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

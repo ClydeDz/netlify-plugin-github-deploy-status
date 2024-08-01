@@ -1,9 +1,7 @@
 # netlify-plugin-github-deploy-status
 
-https://docs.netlify.com/integrations/build-plugins/create-plugins/
+Netlify plugin that updates GitHub commit status with the latest deployment progress.
 
-https://docs.netlify.com/integrations/build-plugins/share-plugins/#publish-to-npm
+## Credits
 
-https://www.npmjs.com/search?q=netlify-plugin-
-
-https://docs.github.com/en/rest/commits/statuses?apiVersion=2022-11-28#create-a-commit-status
+Developed by [Clyde D'Souza](https://clydedsouza.net/)
