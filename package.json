@@ -16,7 +16,9 @@
     "url": "git+https://github.com/ClydeDz/netlify-plugin-github-deploy-status.git"
   },
   "keywords": [
-    "github"
+    "github",
+    "netlify-plugin",
+    "netlify"
   ],
   "author": "Clyde D'Souza",
   "license": "MIT",

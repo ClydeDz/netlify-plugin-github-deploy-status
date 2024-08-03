@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
 const updateGithub = async (utils, state, description) => {
-  const commitSha = process.env.COMMIT_REF;
+  const commitSha = process.env.COMMIT_REF; // When developing locally, replace this with an actual value
   const repoOwner = process.env.GITHUB_REPO_OWNER;
   const repoName = process.env.GITHUB_REPO_NAME;
   const githubToken = process.env.GITHUB_TOKEN;
