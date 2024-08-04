@@ -28,7 +28,7 @@ describe("buildEvents", () => {
     process.env.GITHUB_REPO_NAME = "test-repo";
     process.env.GITHUB_TOKEN = "test-token";
     process.env.SITE_NAME = "your-awesome-site";
-    process.env.BUILD_ID = "1234567890";
+    process.env.DEPLOY_ID = "1234567890";
   });
 
   afterEach(() => {
@@ -38,7 +38,7 @@ describe("buildEvents", () => {
     delete process.env.GITHUB_REPO_NAME;
     delete process.env.GITHUB_TOKEN;
     delete process.env.SITE_NAME;
-    delete process.env.BUILD_ID;
+    delete process.env.DEPLOY_ID;
   });
 
   describe("scenarios involving updating GitHub status via API", () => {
