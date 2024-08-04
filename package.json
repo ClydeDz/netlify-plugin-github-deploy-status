@@ -1,6 +1,6 @@
 {
   "name": "@clydedsouza/netlify-plugin-github-deploy-status",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Netlify plugin that updates GitHub commit status with the latest deployment progress.",
   "main": "./src/index.cjs",
   "exports": "./src/index.cjs",
@@ -19,7 +19,16 @@
   "keywords": [
     "github",
     "netlify-plugin",
-    "netlify"
+    "netlify",
+    "github commit status",
+    "netlify deployment status",
+    "github deploy status",
+    "netlify plugin",
+    "netlify github integration",
+    "github api",
+    "commit status",
+    "deployment notification on github",
+    "build notification on github"
   ],
   "author": "Clyde D'Souza",
   "license": "MIT",
