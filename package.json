@@ -6,7 +6,8 @@
   "exports": "./src/index.cjs",
   "scripts": {
     "build": "netlify env:import .env.local && netlify build",
-    "test": "npm run test"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "publishConfig": {
     "access": "public"
@@ -27,6 +28,8 @@
   },
   "homepage": "https://github.com/ClydeDz/netlify-plugin-github-deploy-status#readme",
   "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
     "netlify-cli": "^17.33.5"
   },
   "dependencies": {
