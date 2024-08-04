@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: Install dependencies
-        run: npm run test
+        run: npm run test:coverage
 
       - name: Publish code coverage results
         uses: romeovs/lcov-reporter-action@v0.4.0
