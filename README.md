@@ -38,7 +38,7 @@ Note:
 
 Run the Netlify build and deploy process for a commit pushed to the GitHub repository. Then head to the commit in GitHub and you should see the commit status reflected, example screenshot below. Note, commit status will be published when a Netlify build begins, when it succeeds and when it fails.
 
-![image info](./docs/demo.png)
+![image info](https://raw.githubusercontent.com/ClydeDz/netlify-plugin-github-deploy-status/main/docs/demo.png)
 
 ## Credits
 

@@ -1,13 +1,10 @@
+.env*
+*.tgz
+netlify.toml
+
 .netlify/**
 .github/**
 
-.env*
-*.tgz
-
-
-netlify.toml
-
 docs/**  
 coverage/**
-
 src/**.test.**
