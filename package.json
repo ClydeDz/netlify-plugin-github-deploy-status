@@ -1,6 +1,6 @@
 {
   "name": "@clydedsouza/netlify-plugin-github-deploy-status",
-  "version": "0.0.4",
+  "version": "0.0.5-beta.1",
   "description": "Netlify plugin that updates GitHub commit status with the latest deployment progress.",
   "main": "./src/index.cjs",
   "exports": "./src/index.cjs",

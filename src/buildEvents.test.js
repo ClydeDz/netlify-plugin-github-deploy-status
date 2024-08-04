@@ -27,6 +27,8 @@ describe("buildEvents", () => {
     process.env.GITHUB_REPO_OWNER = "test-owner";
     process.env.GITHUB_REPO_NAME = "test-repo";
     process.env.GITHUB_TOKEN = "test-token";
+    process.env.SITE_NAME = "your-awesome-site";
+    process.env.BUILD_ID = "1234567890";
   });
 
   afterEach(() => {
@@ -36,6 +38,7 @@ describe("buildEvents", () => {
     delete process.env.GITHUB_REPO_NAME;
     delete process.env.GITHUB_TOKEN;
     delete process.env.SITE_NAME;
+    delete process.env.BUILD_ID;
   });
 
   describe("scenarios involving updating GitHub status via API", () => {
@@ -57,37 +60,11 @@ describe("buildEvents", () => {
           },
           body: JSON.stringify({
             state: "success",
-            description: "Your site was deployed to Netlify successfully",
+            description:
+              "your-awesome-site was deployed to Netlify successfully",
             context: "Netlify",
-          }),
-        }
-      );
-
-      expect(consoleLogSpy).toHaveBeenCalledWith("Plugin: onSuccess() running");
-      expect(mockUtils.build.failBuild).not.toHaveBeenCalled();
-    });
-
-    it("should update GitHub status when a build passes and site name is specified", async () => {
-      process.env.SITE_NAME = "Awesome site";
-      fetch.mockResolvedValue({ ok: true });
-
-      await onNetlifyBuildSuccess({
-        utils: mockUtils,
-        constants: mockConstants,
-      });
-
-      expect(fetch).toHaveBeenCalledWith(
-        "https://api.github.com/repos/test-owner/test-repo/statuses/test-commit-sha",
-        {
-          method: "POST",
-          headers: {
-            Authorization: "token test-token",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            state: "success",
-            description: "Awesome site was deployed to Netlify successfully",
-            context: "Netlify",
+            target_url:
+              "https://app.netlify.com/sites/your-awesome-site/deploys/1234567890",
           }),
         }
       );
@@ -114,8 +91,10 @@ describe("buildEvents", () => {
           },
           body: JSON.stringify({
             state: "failure",
-            description: "Your site could not be deployed to Netlify",
+            description: "your-awesome-site could not be deployed to Netlify",
             context: "Netlify",
+            target_url:
+              "https://app.netlify.com/sites/your-awesome-site/deploys/1234567890",
           }),
         }
       );
@@ -142,8 +121,10 @@ describe("buildEvents", () => {
           },
           body: JSON.stringify({
             state: "pending",
-            description: "Your site is being deployed to Netlify",
+            description: "your-awesome-site is being deployed to Netlify",
             context: "Netlify",
+            target_url:
+              "https://app.netlify.com/sites/your-awesome-site/deploys/1234567890",
           }),
         }
       );

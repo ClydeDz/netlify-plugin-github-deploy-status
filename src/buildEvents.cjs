@@ -5,18 +5,26 @@ const updateGithub = async (utils, state, messageTemplate) => {
   const repoOwner = process.env.GITHUB_REPO_OWNER;
   const repoName = process.env.GITHUB_REPO_NAME;
   const githubToken = process.env.GITHUB_TOKEN;
-  const description = process.env.SITE_NAME
-    ? messageTemplate.replace("$SITE_NAME", process.env.SITE_NAME)
-    : messageTemplate.replace("$SITE_NAME", "Your site");
+  const siteName = process.env.SITE_NAME;
+  const uniqueBuildId = process.env.BUILD_ID;
 
-  if (!commitSha || !repoOwner || !repoName || !githubToken) {
+  if (
+    !commitSha ||
+    !repoOwner ||
+    !repoName ||
+    !githubToken ||
+    !siteName ||
+    !uniqueBuildId
+  ) {
     utils.build.failBuild("Missing necessary environment variables");
     return;
   }
 
-  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/statuses/${commitSha}`;
+  const targetUrl = `https://app.netlify.com/sites/${siteName}/deploys/${uniqueBuildId}`;
+  const description = messageTemplate.replace("$SITE_NAME", siteName);
+  const githubApiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/statuses/${commitSha}`;
 
-  const response = await fetch(url, {
+  const response = await fetch(githubApiUrl, {
     method: "POST",
     headers: {
       Authorization: `token ${githubToken}`,
@@ -26,6 +34,7 @@ const updateGithub = async (utils, state, messageTemplate) => {
       state,
       description,
       context: "Netlify",
+      target_url: targetUrl,
     }),
   });
 
