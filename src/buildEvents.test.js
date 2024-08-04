@@ -62,7 +62,7 @@ describe("buildEvents", () => {
             state: "success",
             description:
               "your-awesome-site was deployed to Netlify successfully",
-            context: "Netlify",
+            context: "Netlify Deploy Status Plugin",
             target_url:
               "https://app.netlify.com/sites/your-awesome-site/deploys/1234567890",
           }),
@@ -92,7 +92,7 @@ describe("buildEvents", () => {
           body: JSON.stringify({
             state: "failure",
             description: "your-awesome-site could not be deployed to Netlify",
-            context: "Netlify",
+            context: "Netlify Deploy Status Plugin",
             target_url:
               "https://app.netlify.com/sites/your-awesome-site/deploys/1234567890",
           }),
@@ -122,7 +122,7 @@ describe("buildEvents", () => {
           body: JSON.stringify({
             state: "pending",
             description: "your-awesome-site is being deployed to Netlify",
-            context: "Netlify",
+            context: "Netlify Deploy Status Plugin",
             target_url:
               "https://app.netlify.com/sites/your-awesome-site/deploys/1234567890",
           }),

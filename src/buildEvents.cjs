@@ -33,7 +33,7 @@ const updateGithub = async (utils, state, messageTemplate) => {
     body: JSON.stringify({
       state,
       description,
-      context: "Netlify",
+      context: "Netlify Deploy Status Plugin",
       target_url: targetUrl,
     }),
   });
